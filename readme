@@ -12,7 +12,8 @@ features:
 § installation
 git clone https://github.com/getjared/cimg.git
 cd cimg
-make
+- gcc embed.c -o embed -lz
+- gcc extract.c -o extract -lz
 
 § dependencies
 • c compiler (gcc or clang)

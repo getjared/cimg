@@ -1,1 +1,53 @@
 
+                               cimg
+                     <file embedding in images>
+
+features:
+• embed any files into PNG, JPEG, BMP, or GIF images
+• compress embedded data to save space
+• extract embedded files from modified images
+• preserves original image quality
+• supports multiple file embedding
+
+§ installation
+git clone https://github.com/getjared/cimg.git
+cd cimg
+make
+
+§ dependencies
+• c compiler (gcc or clang)
+• make
+• zlib development libraries (zlib1g-dev on debian/ubuntu)
+
+§ quick-start
+embedding files:
+    ./embed <input_image> <output_image> <file1_to_embed> [file2_to_embed ...]
+    example: ./embed original.png modified.png secret.txt data.pdf
+
+extracting files:
+    ./extract <modified_image>
+    example: ./extract modified.png
+
+supported formats:
+• PNG
+• JPEG
+• BMP
+• GIF
+
+§ extra
+cimg is designed to be simple and efficient, allowing you to store files within image containers
+while maintaining the image's visible quality. embedded files are automatically compressed to
+minimize size impact. the program detects image formats automatically and handles them appropriately.
+
+note: this tool is meant for legitimate file storage purposes. the modified images may be
+larger than the originals due to the embedded data.
+
+example usage:
+1. embed multiple files:
+   ./embed photo.jpg modified.jpg document.pdf notes.txt archive.zip
+
+2. extract files later:
+   ./extract modified.jpg
+   > Extracted: document.pdf (156789 bytes)
+   > Extracted: notes.txt (2045 bytes)
+   > Extracted: archive.zip (1034567 bytes)
